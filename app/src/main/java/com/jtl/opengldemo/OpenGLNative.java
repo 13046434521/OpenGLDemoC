@@ -1,5 +1,7 @@
 package com.jtl.opengldemo;
 
+import android.content.res.AssetManager;
+
 /**
  * 作者:jtl
  * 日期:Created in 2019/4/13 16:26
@@ -16,4 +18,6 @@ public class OpenGLNative {
     public static native void drawFrame();
 
     public static native void surfaceChanged(int width,int height);
+
+    public static native void loadAssetContent(AssetManager assetManager);
 }

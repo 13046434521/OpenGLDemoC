@@ -25,18 +25,23 @@ Java_com_jtl_opengldemo_OpenGLNative_initGL(JNIEnv *env, jclass type) {
 
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_jtl_opengldemo_OpenGLNative_surfaceChanged(JNIEnv * env,jclass type,jfloat width,jfloat height){
+Java_com_jtl_opengldemo_OpenGLNative_surfaceChanged(JNIEnv *env, jclass type, jint width,
+        jint height) {
     surfaceChange(width,height);
+
 }
+
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_jtl_opengldemo_OpenGLNative_drawFrame(JNIEnv *env, jclass type) {
    drawFrame();
 }
 
+
+
 extern "C"
 JNIEXPORT void JNICALL
-Java_com_jtl_opengldemo_OpenGLNative_loadAssetContent(JNIEnv * env ,jclass type,jobject manager){
-    aAssetManager=AAssetManager_fromJava(env,manager);
+Java_com_jtl_opengldemo_OpenGLNative_loadAssetContent(JNIEnv *env, jclass type,
+                                                      jobject assetManager) {
+    aAssetManager=AAssetManager_fromJava(env,assetManager);
 }
-

@@ -34,6 +34,7 @@ public class DemoGLSurface extends GLSurfaceView implements GLSurfaceView.Render
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+        OpenGLNative.loadAssetContent(getContext().getAssets());
         OpenGLNative.initGL();
     }
 

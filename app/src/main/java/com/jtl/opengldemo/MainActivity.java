@@ -2,6 +2,7 @@ package com.jtl.opengldemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.NativeActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
