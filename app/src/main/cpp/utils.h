@@ -11,3 +11,5 @@ unsigned char *loadFileContent(const char *path, int &filesSize);
 GLuint CompileShader(GLenum shaderType, const char *shaderCode);
 
 GLuint CreateProgram(GLuint vsShader,GLuint fsShader);
+
+unsigned  char* DecodeBMP(unsigned char* bmpFileData,int &width,int &height){}

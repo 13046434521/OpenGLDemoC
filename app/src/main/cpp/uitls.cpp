@@ -40,3 +40,22 @@ GLuint CreateProgram(GLuint vsShader,GLuint fsShader){
     }
     return program;
 }
+
+unsigned  char* DecodeBMP(unsigned char* bmpFileData,int &width,int &height){
+    if (0X4D42 == *((unsigned short*)bmpFileData)){
+        int pixelDataOffeset=*((int*)bmpFileData+10);//像素数据起始位置
+        width=*((int*)bmpFileData+18);
+        height=*((int*)bmpFileData+22);
+        unsigned char*pixelData = bmpFileData+pixelDataOffeset;
+        //Bitmap 默认为BGR，这里把BGR => RGB
+        for (int i = 0; i <width*height*3 ; i+=3) {
+            unsigned char temp=pixelData[i];
+            pixelData[i]=pixelData[i+2];
+            pixelData[i+2]=temp;
+        }
+
+        return pixelData;
+    }
+
+    return nullptr;
+}
