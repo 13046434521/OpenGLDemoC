@@ -19,6 +19,16 @@ unsigned char *loadFileContent(const char *path, int &filesize) {
     return filecontent;
 }
 
+float getFrameTime(){
+    static unsigned long long lastTime=0,timeCurrent=0;
+    timeval current;
+    gettimeofday(&current,NULL);
+    //tv_sec(秒)*1000 是毫秒   tv_usec(微妙)/1000 是毫秒
+    timeCurrent=current.tv_sec*1000+current.tv_usec/1000;
+    unsigned  long long frameTime = lastTime==0?0:timeCurrent-lastTime;
+    return float(frameTime)/1000.f;
+}
+
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_jtl_opengldemo_OpenGLNative_initGL(JNIEnv *env, jclass type) {
@@ -36,6 +46,7 @@ Java_com_jtl_opengldemo_OpenGLNative_surfaceChanged(JNIEnv *env, jclass type, ji
 extern "C"
 JNIEXPORT void JNICALL
 Java_com_jtl_opengldemo_OpenGLNative_drawFrame(JNIEnv *env, jclass type) {
+    float time=getFrameTime();
     drawFrame();
 }
 

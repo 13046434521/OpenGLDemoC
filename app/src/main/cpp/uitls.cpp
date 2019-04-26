@@ -59,6 +59,9 @@ unsigned char *DecodeBMP(unsigned char *bmpFileData, int &width, int &height) {
 
     return nullptr;
 }
+
+float getFrameTime();
+
 GLuint CreateTexture2D(unsigned char* pixelData,int width,int height,GLenum type){
     GLuint textureId;
     glGenTextures(0,&textureId);
